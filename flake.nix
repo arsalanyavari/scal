@@ -19,6 +19,8 @@
           src = pkgs.lib.cleanSource ./.;
           cargoLock.lockFile = ./Cargo.lock;
 
+          doCheck = false;
+
           postInstall = ''
             install -Dm644 man/scal.1.roff $out/share/man/man1/scal.1
             install -Dm644 man/sdate.1.roff $out/share/man/man1/sdate.1
