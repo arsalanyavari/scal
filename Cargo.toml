@@ -1,6 +1,6 @@
 [package]
 name        = "scal_lib"
-version     = "1.0.0"
+version     = "1.1.0"
 edition     = "2024"
 license     = "LGPLv3"
 authors     = ["Amir Arsalan Yavari"]

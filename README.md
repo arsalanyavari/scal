@@ -1,5 +1,3 @@
-
-
 # Scal
 
 ### Modern Rust implementation of the classic [jcal](nongnu.org/jcal) utilities
@@ -9,9 +7,51 @@ This is the reimplementation of jcal/jdate unix command in Rust that originally 
 > [!Note]
 > I have fixed the bugs in Ashkan's original code related to leap years in the new implementation and add sstat command also. This version supports the `scal`, `sdate` and `sstat` commands for all possible years.
 
-# Installation:
-Using pre‑built packages (recommended)
+# Installation
 
+> [!note]
+> When you install the `scal` package from the repository (or Homebrew), the `sdate` and `sstat` commands are automatically installed for you!
+
+## 🐧 Linux Repositories (APT / YUM)
+We provide automated APT and YUM repositories hosted on GitHub Pages.
+
+**For Debian / Ubuntu (APT):**
+```bash
+echo "deb [trusted=yes] https://arsalanyavari.github.io/scal/apt /" | sudo tee /etc/apt/sources.list.d/scal.list
+sudo apt update
+sudo apt install scal
+```
+
+**For Fedora / RHEL / CentOS (YUM/DNF):**
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/scal.repo
+[scal]
+name=Scal Repository
+baseurl=https://arsalanyavari.github.io/scal/yum/
+enabled=1
+gpgcheck=0
+EOF
+sudo dnf install scal
+```
+
+## ❄️ Nix / NixOS
+If you use Nix package manager or NixOS, you can run `scal` directly without installing:
+```bash
+nix run github:arsalanyavari/scal
+```
+Or install it permanently to your profile:
+```bash
+nix profile install github:arsalanyavari/scal
+```
+
+## 🍺 Homebrew (macOS & Linux)
+You can easily install `scal` (which includes `sdate` and `sstat`) via Homebrew:
+```bash
+brew tap arsalanyavari/scal
+brew install scal
+```
+
+## 📦 Direct Downloads (Pre-built packages)
 Head over to the [**Releases**](https://github.com/arsalanyavari/scal/releases) page and grab the asset that matches your system:
 
 | Distro / OS     | Architecture            | File                                           |

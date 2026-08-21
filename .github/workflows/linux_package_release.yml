@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -46,31 +46,49 @@ jobs:
       - name: Create DEB packages
         run: |
           for app in scal sdate sstat; do
+            EXTRA_FLAGS=""
+            EXTRA_PATHS=""
+            if [ "$app" == "scal" ]; then
+              EXTRA_FLAGS="--depends sdate --depends sstat"
+              EXTRA_PATHS="./man/slib.3.roff=/usr/share/man/man3/slib.3"
+            fi
             fpm -s dir -t deb \
               -n $app \
               -v ${{ github.ref_name }} \
               -a ${{ matrix.deb_arch }} \
               --maintainer "Amir Arsalan Yavari" \
               --description "$app application" \
+              $EXTRA_FLAGS \
               --package $app-${{ matrix.deb_arch }}.deb \
-              ./target/${{ matrix.target }}/release/$app=/usr/bin/$app
+              ./target/${{ matrix.target }}/release/$app=/usr/bin/$app \
+              ./man/$app.1.roff=/usr/share/man/man1/$app.1 \
+              $EXTRA_PATHS
           done
 
       - name: Create RPM packages
         run: |
           for app in scal sdate sstat; do
+            EXTRA_FLAGS=""
+            EXTRA_PATHS=""
+            if [ "$app" == "scal" ]; then
+              EXTRA_FLAGS="--depends sdate --depends sstat"
+              EXTRA_PATHS="./man/slib.3.roff=/usr/share/man/man3/slib.3"
+            fi
             fpm -s dir -t rpm \
               -n $app \
               -v ${{ github.ref_name }} \
               -a ${{ matrix.rpm_arch }} \
               --maintainer "Amir Arsalan Yavari" \
               --description "$app application" \
+              $EXTRA_FLAGS \
               --package $app-${{ matrix.rpm_arch }}.rpm \
-              ./target/${{ matrix.target }}/release/$app=/usr/bin/$app
+              ./target/${{ matrix.target }}/release/$app=/usr/bin/$app \
+              ./man/$app.1.roff=/usr/share/man/man1/$app.1 \
+              $EXTRA_PATHS
           done
 
       - name: Upload packages
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: |
             *.deb
@@ -84,7 +102,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -116,7 +134,7 @@ jobs:
       - name: Build APT Repository
         run: |
           cd apt
-          dpkg-scanpackages . /dev/null > Packages
+          dpkg-scanpackages -m . /dev/null > Packages
           gzip -9c Packages > Packages.gz
           apt-ftparchive release . > Release
           cd ..
