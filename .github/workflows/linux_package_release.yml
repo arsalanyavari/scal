@@ -5,6 +5,9 @@ on:
     types:
       - published
 
+permissions:
+  contents: write
+
 jobs:
   build-packages:
     name: Build DEB/RPM Packages
@@ -74,3 +77,56 @@ jobs:
             *.rpm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-repo:
+    name: Update APT/YUM Repository
+    needs: build-packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Switch to gh-pages or create it
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf .
+          fi
+          mkdir -p apt yum
+
+      - name: Install Repo Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev createrepo-c
+
+      - name: Download release assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download ${{ github.ref_name }} --repo ${{ github.repository }} --pattern '*.deb' --dir apt/ || true
+          gh release download ${{ github.ref_name }} --repo ${{ github.repository }} --pattern '*.rpm' --dir yum/ || true
+
+      - name: Build APT Repository
+        run: |
+          cd apt
+          dpkg-scanpackages . /dev/null > Packages
+          gzip -9c Packages > Packages.gz
+          cd ..
+
+      - name: Build YUM Repository
+        run: |
+          cd yum
+          createrepo_c .
+          cd ..
+
+      - name: Commit and Push
+        run: |
+          git add apt/ yum/
+          git commit -m "Update repository for release ${{ github.ref_name }}" || echo "No changes to commit"
+          git push origin gh-pages
