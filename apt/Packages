@@ -1,0 +1,52 @@
+Package: scal
+Version: 1.1.0
+Architecture: arm64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 1141
+Depends: sdate, sstat
+Filename: ./scal-arm64.deb
+Size: 446500
+MD5sum: 7f2297c582a37ba89f721ecfd923f90d
+SHA1: c138bbe266d98fbabb1ff2c66d612b67656f011f
+SHA256: 7f52cd6482ed391d4a98147a75be06f342408ad1ac61e57eca14560315c8b9d7
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: scal application
+License: unknown
+Vendor: none
+
+Package: sdate
+Version: 1.1.0
+Architecture: amd64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 3010
+Filename: ./sdate-amd64.deb
+Size: 646762
+MD5sum: dd1b5fe25c107ddea76956c38f27a786
+SHA1: 337455fd5ec538db2200c45533986da3abe147b2
+SHA256: 607cb786640dbe4149fe0793e8f63a12f1843cadcd8f33d9b9dbe6af27c2f819
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: sdate application
+License: unknown
+Vendor: none
+
+Package: sstat
+Version: 1.1.0
+Architecture: amd64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 1207
+Filename: ./sstat-amd64.deb
+Size: 472842
+MD5sum: 04c96bef58a245b09de0125ff455a9ab
+SHA1: b50ec9f3f7943b1cf94357d52560d88d77b82271
+SHA256: 5c50bb29817ba43698ae1967d345690e89dbeafa22a72f8847203b1553b77b98
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: sstat application
+License: unknown
+Vendor: none
+
