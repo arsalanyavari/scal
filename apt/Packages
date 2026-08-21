@@ -5,10 +5,28 @@ Maintainer: Amir Arsalan Yavari
 Installed-Size: 1141
 Depends: sdate, sstat
 Filename: ./scal-arm64.deb
-Size: 446500
-MD5sum: 7f2297c582a37ba89f721ecfd923f90d
-SHA1: c138bbe266d98fbabb1ff2c66d612b67656f011f
-SHA256: 7f52cd6482ed391d4a98147a75be06f342408ad1ac61e57eca14560315c8b9d7
+Size: 446508
+MD5sum: fee44133b0ef0a1909d77b12f9e24b47
+SHA1: 8447cb920a079b63f3fb4919db61456eb582c0c8
+SHA256: 514d3b17d9ccf3126ba11678e87d21749ed1df4a2160791e540c08f42935fcbd
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: scal application
+License: unknown
+Vendor: none
+
+Package: scal
+Version: 1.1.0
+Architecture: amd64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 1184
+Depends: sdate, sstat
+Filename: ./scal-amd64.deb
+Size: 463304
+MD5sum: 62a3a97510da0ffb302209569274aa5e
+SHA1: 2dd3cac821bf82539f8a01b0d7cdb46fce9782f4
+SHA256: 81343a62fe02d0a7740666ad7f2d97a8b8fb16bbdea247be5e1693ea57dbabdf
 Section: default
 Priority: optional
 Homepage: http://example.com/no-uri-given
@@ -22,10 +40,27 @@ Architecture: amd64
 Maintainer: Amir Arsalan Yavari
 Installed-Size: 3010
 Filename: ./sdate-amd64.deb
-Size: 646762
-MD5sum: dd1b5fe25c107ddea76956c38f27a786
-SHA1: 337455fd5ec538db2200c45533986da3abe147b2
-SHA256: 607cb786640dbe4149fe0793e8f63a12f1843cadcd8f33d9b9dbe6af27c2f819
+Size: 646748
+MD5sum: cbba05f8dd730a6e94daa5f695dc17e8
+SHA1: 6b582a5712ce88474cf2b36e30809d324eb9ea97
+SHA256: 9a42846f075527e99f8fbc7cc995fa49611917ce93dd820de567472715cf6f5d
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: sdate application
+License: unknown
+Vendor: none
+
+Package: sdate
+Version: 1.1.0
+Architecture: arm64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 2992
+Filename: ./sdate-arm64.deb
+Size: 631538
+MD5sum: e05ba2a5d0e615c0fac01b7a4d6e4b24
+SHA1: a6cfe9c8ca163b2ad0ba80dc9ae9f818a30ffb23
+SHA256: 505b3e964afb7fc8b1567308acd809939231718978c41d1747864070e7f9e815
 Section: default
 Priority: optional
 Homepage: http://example.com/no-uri-given
@@ -39,10 +74,27 @@ Architecture: amd64
 Maintainer: Amir Arsalan Yavari
 Installed-Size: 1207
 Filename: ./sstat-amd64.deb
-Size: 472842
-MD5sum: 04c96bef58a245b09de0125ff455a9ab
-SHA1: b50ec9f3f7943b1cf94357d52560d88d77b82271
-SHA256: 5c50bb29817ba43698ae1967d345690e89dbeafa22a72f8847203b1553b77b98
+Size: 472850
+MD5sum: 2820897bc989c05bb4e6428fa79d9830
+SHA1: b6dce40a943a9354f70dda722854941ce72be7b7
+SHA256: a304d227a8c6eb4b9947c573122068059cc83a09e7eb8c6894f36ad03cf35f3f
+Section: default
+Priority: optional
+Homepage: http://example.com/no-uri-given
+Description: sstat application
+License: unknown
+Vendor: none
+
+Package: sstat
+Version: 1.1.0
+Architecture: arm64
+Maintainer: Amir Arsalan Yavari
+Installed-Size: 1162
+Filename: ./sstat-arm64.deb
+Size: 456328
+MD5sum: 55f5173c4ff2634be62ac32da7213b6f
+SHA1: dab17585993282311b4bc74703ec6a6f282fa107
+SHA256: 7d40bbed7e2062c403ec3cea8920cbefa660fcb85b98f22dc4c401e9a9f65c30
 Section: default
 Priority: optional
 Homepage: http://example.com/no-uri-given
