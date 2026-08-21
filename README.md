@@ -1,3 +1,5 @@
+
+
 # Scal
 
 ### Modern Rust implementation of the classic [jcal](nongnu.org/jcal) utilities
@@ -20,7 +22,7 @@ Head over to the [**Releases**](https://github.com/arsalanyavari/scal/releases) 
 |                 | `arm64`                 | `{scal,sdate,sstat}-aarch64.rpm`                   |
 | Linux (any)     | `x86_64`, `arm64`       | `<arch>-unknown-linux-gnu.zip` |
 | Windows 10+     | `x86_64`                | `x86_64-pc-windows-gnu.zip`      |
-| macOS 11+       | `arm64` (Apple Silicon) | `aarch64-apple-darwin.zip`        |
+| macOS 11+       | `arm64` (Apple Silicon) | `aarch64-apple-darwin.zip`        |
 |                 | `x86_64` (Intel)        | `x86_64-apple-darwin.zip`         |
 
 If you download Linux packages:
@@ -48,7 +50,7 @@ cd scal
 ```
 cargo build --release
 ```
-- $ **scal** or **sdate** in `target/release/` path
+- The `scal`, `sdate`, and `sstat` binaries will be in the `target/release/` directory.
 
 <br>
 
